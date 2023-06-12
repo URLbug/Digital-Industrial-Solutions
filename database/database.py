@@ -28,6 +28,14 @@ user = Table(
   Column("description", String(500))
 )
 
+user_2 = Table(
+  "user_2",
+  metadata_obj,
+  Column("id", Integer, primary_key=True),
+  Column("id_user", String(100)),
+  Column("name_user", String(100))
+)
+
 reviews = Table(
   "reviews",
   metadata_obj,
@@ -47,6 +55,22 @@ class User(Base):
   name_user = Column(String(100))
   types = Column(String(50))
   description = Column(String(500))
+  
+  def update_count_offers(id_to_update, new_desc):
+    try:
+        query = session.query(User).filter(User.id_user == id_to_update).\
+            update({User.count_offers: new_desc}, synchronize_session=False)
+        session.commit()
+    except:
+        session.rollback()
+
+class User_2(Base):
+
+  __tablename__ = 'user_2'
+
+  id = Column(Integer, primary_key=True)
+  id_user = Column(String(100))
+  name_user = Column(String(100))
   
   def update_count_offers(id_to_update, new_desc):
     try:
@@ -96,7 +120,7 @@ def creates(what):
   except:
     pass
 
-table = [user, reviews]
+table = [user, reviews, user_2]
 
 for i in table:
     creates(i)

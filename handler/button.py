@@ -5,7 +5,7 @@ def menu():
     build = ReplyKeyboardBuilder()
 
     build.button(text='Ассортимент')
-    build.button(text='Отзовы')
+    build.button(text='Отзывы')
 
     build.adjust(2)
 
