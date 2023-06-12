@@ -1,6 +1,6 @@
 from aiogram import Router
 from aiogram.filters.text import Text
-from aiogram.types import Message, CallbackQuery
+from aiogram.types import Message, CallbackQuery, InputMediaPhoto
 
 from .button import menu_price
 from __init__ import project

@@ -63,7 +63,7 @@ class Reviews(Base):
   id = Column(Integer, primary_key=True)
   id_user = Column(String(100))
   name_user = Column(String(100))
-  description = Column(String(500))
+  reviews = Column(String(500))
   
   def update_count_offers(id_to_update, new_desc):
     try:
