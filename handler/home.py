@@ -19,4 +19,4 @@ async def start(message: Message):
         session.commit()
         session.close()
 
-    await message.answer('Вас приветствует компания Digital Factory!\n\nДля начала, выберите интересующий Вас продукт, кликнув на кнопку "Ассортимент".\n\nТакже мы предлагаем Вам ознакомиться с нашим портфолио:\nGitHub - https://github.com/URLbug\nСайты - RuiHelp.pythonanywhere.com, amin445.pythonanywhere.com\n\nПриятного выбора!', reply_markup=menu())
+    await message.answer('Вас приветствует компания Digital Industrial Solutions!\n\nДля начала, выберите интересующий Вас продукт, кликнув на кнопку "Ассортимент".\n\nТакже мы предлагаем Вам ознакомиться с нашим портфолио:\nGitHub - https://github.com/URLbug\nСайты - RuiHelp.pythonanywhere.com, amin445.pythonanywhere.com\n\nПриятного выбора!', reply_markup=menu())

@@ -1,4 +1,4 @@
-# Digital-Factory bot
+# Digital-Industrial-Solutions bot
 ## Технологии
 ### aiogram==3.0.0b7
 
