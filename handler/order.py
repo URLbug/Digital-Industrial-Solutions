@@ -6,7 +6,7 @@ from aiogram.fsm.context import FSMContext
 from .state import Order
 from .button import menu_order, menu
 from database.database import User, Admin, session
-from main import bot
+from __init__ import bot
 
 
 route = Router()
@@ -49,7 +49,10 @@ async def user_order_3(message: Message, state: FSMContext):
     text = f'Поступил новый заказ от {order_me["user_name"]}({order_me["id_user"]})\n\nОписание и наименование заказа:\n{order_me["type"]}\n{order_me["description"]}'
 
     for i in session.query(Admin.id_user).distinct():
-        await bot.send_message(i.id_user, text)
+        try:
+            await bot.send_message(i.id_user, text)
+        except:
+            print(f'Not activiti {i.id_user}')
     
     order_me.clear()
 

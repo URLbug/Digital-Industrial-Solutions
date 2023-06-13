@@ -14,7 +14,7 @@ reviews_arr = []
 
 index = 0
 
-@route.message(Text(text='Отзовы'))
+@route.message(Text(text='Отзывы'))
 async def reviews_all(message: Message):
     reviews_arr.clear()
 

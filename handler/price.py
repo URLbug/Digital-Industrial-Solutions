@@ -15,7 +15,6 @@ async def price_one(message: Message):
     price = 1
     
     types = project['project_for_make'][projects[price-1]]['name']
-
     await message.answer_photo(project['project_for_make'][projects[price-1]]['image'], 
                                caption=f"{project['project_for_make'][projects[price-1]]['name']}\n{project['project_for_make'][projects[price-1]]['description']}",
                                reply_markup=menu_price(price, types))
@@ -25,9 +24,9 @@ async def price_one(call: CallbackQuery):
     calls = call.data.split(':')
     price = int(calls[1]) - 1
 
-    types = project['project_for_make'][projects[price-1]]['name']
-
     if price <= len(projects)+1 and price > 0:
+        types = project['project_for_make'][projects[price-1]]['name']
+
         await call.message.answer_photo(project['project_for_make'][projects[price-1]]['image'], 
                                caption=f"{project['project_for_make'][projects[price-1]]['name']}\n{project['project_for_make'][projects[price-1]]['description']}",
                                reply_markup=menu_price(price, types))
@@ -37,9 +36,9 @@ async def price_two(call: CallbackQuery):
     calls = call.data.split(':')
     price = int(calls[1]) + 1
 
-    types = project['project_for_make'][projects[price-1]]['name']
-
     if price <= len(projects):
+        types = project['project_for_make'][projects[price-1]]['name']
+
         await call.message.answer_photo(project['project_for_make'][projects[price-1]]['image'], 
                                caption=f"{project['project_for_make'][projects[price-1]]['name']}\n{project['project_for_make'][projects[price-1]]['description']}",
                                reply_markup=menu_price(price, types))
